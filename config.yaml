@@ -1,0 +1,16 @@
+# ragxray 配置
+# 改这个文件就能换实验条件，不用动代码。
+
+# 知识库目录（里面放 .txt / .md，一个文件算一篇文档）
+docs_dir: data/docs
+
+# 标注集（一行一条 JSON）
+queries: data/queries.jsonl
+
+# ---- 切片 ----
+chunk_size: 60      # 每段多少字
+chunk_overlap: 0    # 相邻两段重叠多少字（0 = 不留余地，最容易出问题）
+
+# ---- 检索 ----
+retriever: hybrid   # bm25 / vector / hybrid
+top_k: 3            # 返回前几名

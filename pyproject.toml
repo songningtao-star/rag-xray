@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ragxray"
+version = "0.1.0"
+description = "RAG 检索失败归因：不只告诉你命中率，还告诉你为什么没命中、该改哪里"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "宋宁涛" }]
+keywords = ["rag", "retrieval", "evaluation", "bm25", "hybrid-search", "chinese-nlp"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Natural Language :: Chinese (Simplified)",
+]
+dependencies = [
+    "jieba>=0.42",
+    "fastembed>=0.9",
+    "numpy>=1.24",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/songningtao-star/rag-xray"
+Issues = "https://github.com/songningtao-star/rag-xray/issues"
+
+[project.scripts]
+ragxray = "ragxray.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ragxray*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
